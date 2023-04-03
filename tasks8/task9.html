@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson_8</title>
+   <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+   <h2>Задача9</h2>
+   <p>Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів.
+      Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста,
+      якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується до
+      тих пір, поки не будуть потоплені усі кораблі.</p>
+
+   <script>
+      const numberCellsDimensional = parseInt(prompt('Введіть кількість клітинок'))
+      const numberOfSingleShips = parseInt(prompt('Введіть кількість кораблів'))
+
+      const playingField = createShips(numberCellsDimensional)
+
+      function createCells(numberCellsDimensional) {
+         const arrCells = []
+         for (let i = 0; i < numberCellsDimensional; i++) {
+            arrCells.push(0)
+         }
+         return arrCells
+      }
+
+      function createShips(numberOfSingleShips) {
+         const cells = createCells(numberCellsDimensional)
+         for (let i = 0; i < numberOfSingleShips; i++) {
+            let shipPlace = Math.floor(Math.random() * (numberCellsDimensional))
+            if (!cells[shipPlace]) {
+               cells[shipPlace] = 1
+            }
+            else i--
+         }
+         return cells
+      }
+
+      let knockedOutShips = 0
+      let livingShips = numberOfSingleShips
+
+      while (livingShips) {
+         let userSelected = parseInt(prompt(`Введіть номер клітинки (від 1 до ${numberCellsDimensional}. Залишилось вбити ${livingShips} кораблів)`))
+         if (playingField[userSelected - 1]) {
+            playingField[userSelected - 1] = 0
+            alert('Ви попали')
+            knockedOutShips++
+            livingShips--
+         }
+         else alert('Ви програли, спробуй ще')
+      }
+
+
+   </script>
+</body>
+
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson_7</title>
+   <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+   <h2>Задача8</h2>
+   <p>
+      Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином
+      значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів (поки він не відмовиться).
+      Знаходити сумарний виграш.
+   </p>
+   <script>
+      function getRandomArray(valueNum, min, max) {
+         let arrNumberValue = []
+         for (let i = 0; i < valueNum; i++) {
+            const randNumber = min + Math.floor(Math.random() * (max - min + 1))
+            arrNumberValue.push(randNumber)
+         }
+         return arrNumberValue
+      }
+
+      function playLottery(ticketsLotteryArray) {
+         let elementLottery
+         let infoLottery
+         let playersAnswer
+         let totalWinLottery = 0
+         do {
+            elementLottery = parseInt(prompt(`Виберіть номер лотареї ${ticketsLotteryArray.length}`))
+            totalWinLottery += ticketsLotteryArray[elementLottery - 1]
+            infoLottery = `Ви виграли ${ticketsLotteryArray[elementLottery - 1]} грн. Ваш  виграш ${totalWinLottery}грн.\n Продовжуємо далі?`
+            playersAnswer = confirm(infoLottery)
+         } while (playersAnswer)
+         return totalWinLottery
+      }
+
+      const lotteryTickets = getRandomArray(50, -500, 500)
+      const lottery = playLottery(lotteryTickets)
+
+      document.write(`Ви виграли ${lottery} грн.`)
+   </script>
+</body>
+
+
+</html>

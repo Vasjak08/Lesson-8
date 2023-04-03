@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson_8</title>
+   <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+   <h2>Задача7</h2>
+   <p>
+      Задача 7. Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за: за весь рік; у першій
+      половині року; у другій половині року; за літо; за ІІ квартал; за парні місяці (з парними номерами); за місяці,
+      які є початковими у сезоні (весна, літо, осінь, зима).
+   </p>
+
+   <script>
+
+
+      const arrayPayment = [5, 2, 3, 4, 5, 8, 7, 8, 10, 10, 11, 15]
+
+
+
+      function getPaymentThroughoutTheYear(array, startIndex, endIndex) {
+         let sumPayment = 0
+         for (let index = startIndex - 1; index < endIndex; index++) {
+            sumPayment += array[index]
+         }
+         return sumPayment
+      }
+
+      function getEvenMonthsStartSeason(array, step) {
+         let sumCheck = 0
+         for (let index = 0; index < 12; index++) {
+            console.log(index + 1)
+            if ((index + 1) % step === 0) sumCheck += array[index]
+         }
+         return sumCheck
+      }
+      document.write(`
+        ${getPaymentThroughoutTheYear(arrayPayment, 1, 12)}  за рік;<br>
+        ${getPaymentThroughoutTheYear(arrayPayment, 1, 6)} за першу половину року;<br>
+        ${getPaymentThroughoutTheYear(arrayPayment, 7, 12)} за другу половину року;<br>
+        ${getPaymentThroughoutTheYear(arrayPayment, 5, 8)} за літо;<br>
+        ${getPaymentThroughoutTheYear(arrayPayment, 4, 7)} за ІІ квартал;<br>
+        ${getEvenMonthsStartSeason(arrayPayment, 2)} за парні місяці (з парними номерами);<br>
+        ${getEvenMonthsStartSeason(arrayPayment, 3)}  за місяці, які є початковими у сезоні (весна, літо, осінь, зима)
+          `)
+
+
+
+
+   </script>
+</body>
+
+
+</html>

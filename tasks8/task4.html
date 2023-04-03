@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson_8</title>
+   <link rel="stylesheet" href="">
+</head>
+
+<body>
+   <h2>Задача4</h2>
+
+   <p>Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів,
+      які : • починаються на букву «А»; • перша і остання літери співпадають;
+      • складаються з більше ніш 5 символів;</p>
+
+   <script>
+
+      function getNumbersStartingLetter(registrationNumber, letter) {
+         let firstNumberLetterA = 0
+         for (let i = 0; i < registrationNumber.length; i++) {
+            if (registrationNumber[i][0] === letter) firstNumberLetterA++
+
+         }
+         return firstNumberLetterA
+      }
+
+      function getFirstAndLastLettersMatch(registrationNumber) {
+         let LettersMatch = 0
+         for (let i = 0; i < registrationNumber.length; i++) {
+            if (registrationNumber[i][0] === registrationNumber[i].at(-1)) LettersMatch++
+
+         }
+         return LettersMatch
+      }
+
+
+
+
+      function getNumbersmoreThanFiveCharacters(registrationNumber) {
+         let lengthNumber = 0
+         for (let i = 0; i < registrationNumber.length; i++) {
+            if (registrationNumber[i].length > 5) lengthNumber++
+
+         }
+         return lengthNumber
+      }
+
+
+      const stateRegistrationNumber = ['АО0123АР', 'BT02543AB', 'KA5874BC', 'AS145', 'AO5545HH', 'AK3040HA']
+      const firstNumberLetterA = getNumbersStartingLetter(stateRegistrationNumber, 'A')
+      const firstAndLastLettersMatch = getFirstAndLastLettersMatch(stateRegistrationNumber)
+      const numbersmoreThanFiveCharacters = getNumbersmoreThanFiveCharacters(stateRegistrationNumber)
+
+      document.write(`Номери які починаються на літеру 'A' - ${firstNumberLetterA}<br>`)
+      document.write(`Номери де перша і остання літери збігаються -${firstAndLastLettersMatch}<br>`)
+      document.write(`Номери де є більше пяти символів-${numbersmoreThanFiveCharacters} `)
+
+   </script>
+
+</body>
+
+
+</html>

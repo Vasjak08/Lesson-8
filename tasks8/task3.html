@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson_8</title>
+   <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+   <h2>Задача3</h2>
+   <p>
+      Задача 3. Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+   </p>
+
+   <script>
+
+
+      const studentsNames = ['Іван', 'Роман', 'Мирослава', 'Іван', 'Каміла', 'Іван', 'Василь', 'Михайло', 'Іван']
+
+      function getCountName(namesStudent, name) {
+         let nameNumber = 0
+
+         for (let i = 0; i < namesStudent.length; i++) {
+            if (namesStudent[i] === name) nameNumber++
+         }
+
+         return nameNumber
+      }
+
+      const namesNumberStudent = 'Іван'
+      const nameNumber = getCountName(studentsNames, namesNumberStudent)
+      document.write(`Ім’я ${namesNumberStudent} зустрічається ${nameNumber} рази!`)
+
+   </script>
+
+</body>
+
+
+</html>

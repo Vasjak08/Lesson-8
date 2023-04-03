@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson_8</title>
+   <link rel="stylesheet" href="/tasks5/css5/main5.css">
+</head>
+
+<body>
+   <h2 class="red">Задача5</h2>
+
+   <p>Задача 5. Дано послідовність оцінок учня. Підрахувати кількість: 1) двійок 2) кількість хороших оцінок (добре,
+      відмінно); 3) кількість оцінок, які нижче середнього.</p>
+
+   <script>
+
+      const studentsGradesGiven = [2, 2, 3, 4, 5, 5, 4, 4, 3, 5, 4, 5]
+      function getStudentsGradesGivenTwo() {
+         let rating = 0
+         for (let i = 0; i < studentsGradesGiven.length; i++) {
+            if (studentsGradesGiven[i] === 2) rating++
+
+         }
+         return rating
+      }
+
+      function getStudentsGradesGivenFour() {
+         let rating = 0
+         for (let i = 0; i < studentsGradesGiven.length; i++) {
+            if (studentsGradesGiven[i] === 4 && studentsGradesGiven[i] === 5) rating++
+
+         }
+         return rating
+      }
+
+
+      function getStudentsGradesGivenAverege() {
+         let ratingSum = 0
+         for (let i = 0; i < studentsGradesGiven.length; i++) {
+            ratingSum += studentsGradesGiven[i]
+
+         }
+         return Math.round(ratingSum / studentsGradesGiven.length)
+      }
+
+
+      function getStudentsGradesBelowAverage() {
+         const average = getStudentsGradesGivenAverege
+         let rating = 0
+         for (let i = 0; i < studentsGradesGiven.length; i++) {
+            if (studentsGradesGiven[i] < average) rating++
+
+         }
+         return rating
+      }
+
+      document.write(`Дано послідовність оцінок учня: ${studentsGradesGiven} <br>`);
+      document.write(
+         `Kількість двійок: ${getStudentsGradesGivenTwo(studentsGradesGiven)} <br>`
+      );
+      document.write(
+         `Кількість хороших оцінок (добре, відмінно): ${getStudentsGradesGivenFour(
+            studentsGradesGiven
+         )} <br>`
+      );
+      document.write(`Середня оцінка ${getStudentsGradesGivenAverege(studentsGradesGiven)} <br>`);
+      document.write(`Кількість оцінок, які нижче
+      середнього: ${getStudentsGradesBelowAverage(studentsGradesGiven)} <br>`);
+
+
+
+      document.write(`Учень відноситься до категорії-${category}`)
+
+
+
+   </script>
+
+</body>
+
+
+</html>
